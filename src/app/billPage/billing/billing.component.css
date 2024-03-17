@@ -1,0 +1,61 @@
+
+
+.buttonsonpage{
+    width: 60%;
+    margin: auto;
+    padding: 1%;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.preButton{
+    flex: 90%;
+}
+
+.buttonsonpage button{
+    flex: 10%;
+}
+
+.actualBills{
+    width: 60%;
+    margin: auto;
+    padding: 1%;
+    border: 1px solid black;
+}
+
+.borderLessInput{
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.billingClass{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding: 1%;
+    border: 1px solid black;
+}
+
+.headersectionLeft{
+    flex:60%;
+}
+
+.headersectionRight{
+    flex: 40%;
+}
+
+.headings{
+    font-family: cursive;
+    display: inline-block;
+    color: rgb(78, 43, 78);
+}
+
+.billingHeader{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    background-color: black;
+    color: white;
+    padding: 1%;
+    border: 1px solid black;
+}
