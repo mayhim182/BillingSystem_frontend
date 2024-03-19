@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BillingComponent } from './billPage/billing/billing.component';
 import { ActualbillComponent } from './components/actualbill/actualbill.component';
-
+import { FormsModule } from '@angular/forms';
 
 //Material Modules
 import {MatTableModule} from '@angular/material/table';
@@ -19,7 +19,8 @@ import {MatTableModule} from '@angular/material/table';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { elementAt } from 'rxjs';
 
 export interface Item {
   name: string;
   position: number;
   quantity: number;
   price: number;
+  rowTotal:number;
 }
 
 const ELEMENT_DATA: Item[] = [
-  {position: 1, name: 'Hydrogen', quantity: 1.0079, price: 60},
-  {position: 2, name: 'Helium', quantity: 4.0026, price: 60},
-  {position: 3, name: 'Lithium', quantity: 6.941, price: 70},
+  {position: 1, name: 'Hydrogen', quantity: 1, price: 60,rowTotal:0},
+  {position: 2, name: 'Helium', quantity: 4.0, price: 60,rowTotal:0},
+  {position: 3, name: 'Lithium', quantity: 6, price: 70,rowTotal:0},
 ];
 
 
@@ -20,10 +22,28 @@ const ELEMENT_DATA: Item[] = [
   styleUrls: ['./actualbill.component.css']
 })
 export class ActualbillComponent implements OnInit{
-  displayedColumns: string[] = ['position', 'name', 'quantity', 'price'];
+  displayedColumns: string[] = ['position', 'name', 'quantity', 'price','rowTotal'];
   dataSource = ELEMENT_DATA;
+  @Output() finalPrice:EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit(): void {
-      
+    if(this.dataSource.length>0){
+      this.dataSource.forEach(element => {
+        this.rowTotal(element);
+      });
+      this.onpriceChange();
+    }
+  }
+
+  onpriceChange():void {
+    let localfinalPrice = 0;
+    this.dataSource.forEach(element=>{
+      localfinalPrice += element.rowTotal;
+    });
+    this.finalPrice.emit(localfinalPrice);
+  }
+
+  rowTotal(element:any):void {
+    element.rowTotal = element.quantity * element.price;
   }
 }

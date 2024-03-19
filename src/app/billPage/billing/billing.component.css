@@ -1,5 +1,31 @@
 
 
+.totalprice{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding: 1%;
+    border: 1px solid black;
+    border-top: none;
+}
+
+
+.priceoutput > input{
+    width: 40%;
+    border: none;
+    border-bottom:1px solid black;
+    padding: 1%;
+    text-align: center;
+}
+
+.blankspacewithsometext{
+    flex:75%;
+}
+
+.priceoutput{
+    flex: 18%;
+}
+
 .buttonsonpage{
     width: 60%;
     margin: auto;

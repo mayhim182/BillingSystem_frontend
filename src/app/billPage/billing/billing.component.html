@@ -7,7 +7,7 @@
     </div>
 </header>
 
-<section>
+<section #bill>
     <div id="billingpage">
         <div class="billingClass">
             <div class="headersectionLeft">
@@ -20,8 +20,29 @@
     </div>
     <div class="actualBills">
         <div class="billtable">
-            <actualbill></actualbill>
+            <actualbill (finalPrice)="handleFinalPrice($event)"></actualbill>
         </div>
     </div>
 </section>
 
+<section>
+    <div class="totalprice">
+        <div class="blankspacewithsometext">
+            Total Price
+        </div>
+        <div class="priceoutput">
+            <input matInput [(ngModel)]="finalSum" disabled>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="buttonsonpage">
+        <div class="preButton">
+            
+        </div>
+        <div>
+            <button (click)="printpage();">Print</button>
+        </div>
+    </div>
+</section>
