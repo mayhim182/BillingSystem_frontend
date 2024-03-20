@@ -15,7 +15,7 @@
     border: none;
     border-bottom:1px solid black;
     padding: 1%;
-    text-align: center;
+    text-align: right;
 }
 
 .blankspacewithsometext{
@@ -27,6 +27,7 @@
 }
 
 .buttonsonpage{
+    display: flex;
     width: 60%;
     margin: auto;
     padding: 1%;
@@ -35,8 +36,9 @@
 }
 
 .preButton{
-    flex: 90%;
+    flex: 80%;
 }
+
 
 .buttonsonpage button{
     flex: 10%;
