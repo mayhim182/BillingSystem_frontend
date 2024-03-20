@@ -62,6 +62,7 @@
     margin: auto;
     padding: 1%;
     border: 1px solid black;
+    align-items: center;
 }
 
 .headersectionLeft{
@@ -70,6 +71,13 @@
 
 .headersectionRight{
     flex: 40%;
+    text-align: right;
+    padding: 1%;
+    margin-right: 13%;
+}
+
+.headersectionRight > i:hover{
+    cursor: pointer;
 }
 
 .headings{

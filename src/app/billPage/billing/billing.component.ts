@@ -10,15 +10,14 @@ import { ActualbillComponent } from 'src/app/components/actualbill/actualbill.co
 export class BillingComponent implements OnInit{
 
   @ViewChild('bill') bill:ElementRef | undefined;
-  @ViewChild('actualbill') actualbill!: ActualbillComponent;
+  @ViewChild(ActualbillComponent) actualbill!: ActualbillComponent;
   finalSum:number = 0;
   businessName:string = "IRCTC";
 
+  constructor(private elementRef: ElementRef) { }
+
   ngOnInit(): void {
   }
-
-
-  constructor(private elementRef: ElementRef) {}
 
   printpage():void {
     window.print();
@@ -26,6 +25,10 @@ export class BillingComponent implements OnInit{
 
   handleFinalPrice(price:number):void{
     this.finalSum = price;
+  }
+
+  addRowParent():void {
+    this.actualbill.addRow();
   }
  
 }
