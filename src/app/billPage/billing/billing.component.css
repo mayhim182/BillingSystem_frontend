@@ -5,7 +5,7 @@
     width: 60%;
     margin: auto;
     padding: 1%;
-    border: 1px solid black;
+    border: 1px dashed black;
     border-top: none;
 }
 
@@ -13,7 +13,7 @@
 .priceoutput > input{
     width: 40%;
     border: none;
-    border-bottom:1px solid black;
+    border-bottom:1px dashed black;
     padding: 1%;
     text-align: right;
 }
@@ -31,7 +31,7 @@
     width: 60%;
     margin: auto;
     padding: 1%;
-    border: 1px solid black;
+    border: 1px dashed black;
     border-top: none;
 }
 
@@ -48,12 +48,12 @@
     width: 60%;
     margin: auto;
     padding: 1%;
-    border: 1px solid black;
+    border: 1px dashed black;
 }
 
 .borderLessInput{
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dashed black;
 }
 
 .billingClass{
@@ -61,7 +61,8 @@
     width: 60%;
     margin: auto;
     padding: 1%;
-    border: 1px solid black;
+    border: 1px dashed black;
+    border-bottom: none;
     align-items: center;
 }
 
@@ -90,8 +91,9 @@
     display: flex;
     width: 60%;
     margin: auto;
-    background-color: black;
-    color: white;
+    background-color: rgb(247, 244, 244);
+    color: rgb(24, 23, 23);
     padding: 1%;
-    border: 1px solid black;
+    border: 1px dashed black;
+    border-bottom: none;
 }

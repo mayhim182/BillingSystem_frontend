@@ -1,49 +1,52 @@
-<header>
-    <div class="billingHeader">
-            <div>
-                <h2>{{businessName}}</h2>
+<div id="billing_component" #billcontainer>
+    <header>
+        <div class="billingHeader">
+                <div>
+                    <h2>{{businessName}}</h2>
+                </div>
+                <div></div>
+        </div>
+    </header>
+    
+    <section #bill>
+        <div id="billingpage">
+            <div class="billingClass">
+                <div class="headersectionLeft">
+                    <h3 class="headings">Customer Name:</h3>
+                    <input class="borderLessInput" [(ngModel)]="customerName" matInput>
+                </div>
+                <div class="headersectionRight">
+                    <i class="fa-solid fa-plus" (click)="addRowParent()" matTooltip="add row"></i>
+                </div>
             </div>
-            <div></div>
-    </div>
-</header>
-
-<section #bill>
-    <div id="billingpage">
-        <div class="billingClass">
-            <div class="headersectionLeft">
-                <h3 class="headings">Customer Name:</h3>
-                <input class="borderLessInput" matInput>
-            </div>
-            <div class="headersectionRight" matTooltip="{'add row'}">
-                <i class="fa-solid fa-plus" (click)="addRowParent()"></i>
+        </div>
+        <div class="actualBills">
+            <div class="billtable">
+                <actualbill (finalPrice)="handleFinalPrice($event)"></actualbill>
             </div>
         </div>
-    </div>
-    <div class="actualBills">
-        <div class="billtable">
-            <actualbill (finalPrice)="handleFinalPrice($event)"></actualbill>
+    </section>
+    
+    <section>
+        <div class="totalprice">
+            <div class="blankspacewithsometext">
+                Total Price
+            </div>
+            <div class="priceoutput">
+                <input matInput [(ngModel)]="finalSum" disabled>
+            </div>
         </div>
-    </div>
-</section>
-
-<section>
-    <div class="totalprice">
-        <div class="blankspacewithsometext">
-            Total Price
+    </section>
+    
+    <section>
+        <div class="buttonsonpage">
+            <div class="preButton">
+                <button (click)="savebillto_db()">Save and Next</button>
+            </div>
+            <div class="lastButton">
+                <button (click)="printpage();">Print</button>
+            </div>
         </div>
-        <div class="priceoutput">
-            <input matInput [(ngModel)]="finalSum" disabled>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="buttonsonpage">
-        <div class="preButton">
-            <button>Save and Next</button>
-        </div>
-        <div class="lastButton">
-            <button (click)="printpage();">Print</button>
-        </div>
-    </div>
-</section>
+    </section>
+    
+</div>

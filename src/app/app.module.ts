@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 //Material Modules
 import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     AppRoutingModule,
     MatTableModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

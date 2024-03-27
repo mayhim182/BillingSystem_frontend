@@ -3,7 +3,14 @@
 input{
     width: 40%;
     border: none;
-    border-bottom:1px solid black;
+    border-bottom:1px dashed black;
     padding: 1%;
     text-align: right;
+}
+
+.bill_table{
+    display: flex;
+    align-items: center;
+    height: max-content;
+    overflow: auto;
 }
