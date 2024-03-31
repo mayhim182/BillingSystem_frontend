@@ -24,7 +24,7 @@ const ELEMENT_DATA: Item[] = [
   styleUrls: ['./actualbill.component.css']
 })
 export class ActualbillComponent implements OnInit{
-  displayedColumns: string[] = ['position', 'name', 'quantity', 'price','rowTotal'];
+  displayedColumns: string[] = ['position', 'name', 'quantity', 'price','rowTotal','delete'];
   dataSource = ELEMENT_DATA;
   @Output() finalPrice:EventEmitter<number> = new EventEmitter<number>();
   displayedData:MatTableDataSource<Item> = new MatTableDataSource(this.dataSource);
@@ -60,4 +60,26 @@ export class ActualbillComponent implements OnInit{
     this.displayedData = new MatTableDataSource(this.dataSource);
     this.displayedData._updateChangeSubscription();
   }
+  clearAll(): void {
+    // Clear all rows
+    this.dataSource = [];
+  
+    // Add one empty row
+    this.addRow();
+    this.displayedData = new MatTableDataSource(this.dataSource);
+    this.displayedData._updateChangeSubscription();
+    this.onpriceChange()
+  }
+  deleteRow(row: any): void {
+    const index = this.dataSource.indexOf(row);
+    if (index !== 0 ||(index==0 && this.dataSource.length!=1) ) {
+        this.dataSource.splice(index, 1);
+    }
+    else if(index==0 && this.dataSource.length==1){
+        this.clearAll()
+    }
+    this.displayedData._updateChangeSubscription();
+    this.onpriceChange()
+}
+
 }

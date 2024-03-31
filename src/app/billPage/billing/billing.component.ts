@@ -51,6 +51,9 @@ export class BillingComponent implements OnInit {
   addRowParent(): void {
     this.actualbill.addRow();
   }
+  clearAllRowParent(): void {
+    this.actualbill.clearAll();
+  }
 
   savebillto_db(): void {
     let payLoad:any = {
