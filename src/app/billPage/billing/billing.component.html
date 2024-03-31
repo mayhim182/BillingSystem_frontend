@@ -16,7 +16,12 @@
                     <input class="borderLessInput" [(ngModel)]="customerName" matInput>
                 </div>
                 <div class="headersectionRight">
-                    <i class="fa-solid fa-plus" (click)="addRowParent()" matTooltip="add row"></i>
+                    <div class="addrowsection">
+                        <i class="fa-solid fa-plus" (click)="addRowParent()" matTooltip="add row"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-minus" (click)="clearAllRowParent()" matTooltip="clear all row"></i>
+                    </div>
                 </div>
             </div>
         </div>
