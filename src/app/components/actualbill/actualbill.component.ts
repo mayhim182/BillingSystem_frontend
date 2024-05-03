@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { elementAt } from 'rxjs';
@@ -12,9 +13,6 @@ export interface Item {
 }
 
 const ELEMENT_DATA: Item[] = [
-  {position: 1, name: 'Hydrogen', quantity: 1, price: 60,rowTotal:0},
-  {position: 2, name: 'Helium', quantity: 4.0, price: 60,rowTotal:0},
-  {position: 3, name: 'Lithium', quantity: 6, price: 70,rowTotal:0},
 ];
 
 
@@ -26,8 +24,18 @@ const ELEMENT_DATA: Item[] = [
 export class ActualbillComponent implements OnInit{
   displayedColumns: string[] = ['position', 'name', 'quantity', 'price','rowTotal'];
   dataSource = ELEMENT_DATA;
+  actual_bill_form:FormGroup;
   @Output() finalPrice:EventEmitter<number> = new EventEmitter<number>();
   displayedData:MatTableDataSource<Item> = new MatTableDataSource(this.dataSource);
+
+  constructor(private fb:FormBuilder) {
+    this.actual_bill_form = this.fb.group({
+      name: ['', Validators.required],
+      quantity: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      price:['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]]
+    });
+  }
+
   ngOnInit(): void {
     if(this.dataSource.length>0){
       this.dataSource.forEach(element => {
